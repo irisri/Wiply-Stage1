@@ -1,0 +1,12 @@
+<section>
+  <table>
+    <tr *ngFor="let row of squars">
+      <td
+        *ngFor="let squar of row"
+        (click)="onChangeRandomColor(squar.id, $event)"
+      >
+        <game-squar [id]="squar.id" [color]="squar.color"></game-squar>
+      </td>
+    </tr>
+  </table>
+</section>
