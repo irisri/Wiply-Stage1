@@ -17,8 +17,11 @@ export class SquareService {
     let _squares = [];
     this.getSquares().subscribe((squares) => (_squares = squares));
     const colorMap = this._getColorMap(_squares);
-    let color = this._generateRandomColor(colorMap);
+    let color = this._generateRandomColor();
     const indexes = this._getSquareById(id);
+    while (!colorMap[color] === undefined) {
+      color = this._generateRandomColor();
+    }
     let square = _squares[indexes[0]][indexes[1]];
     square.color = color;
   }
@@ -35,14 +38,13 @@ export class SquareService {
     return colorsMap;
   }
 
-  private _generateRandomColor(colors: Map<string, boolean>) {
+  private _generateRandomColor(): string {
     var letters = '0123456789abcdef';
     var color = '#';
     for (var i = 0; i < 6; i++) {
       color += letters[Math.floor(Math.random() * 16)];
     }
-    if (colors[color] !== false) return color;
-    else return this._generateRandomColor(colors);
+    return color;
   }
 
   private _getSquareById(id: number): any[] {
