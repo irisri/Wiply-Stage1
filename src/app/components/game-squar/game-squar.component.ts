@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Squar } from '../../squar';
 
 @Component({
   selector: 'game-squar',

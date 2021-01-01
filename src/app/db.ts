@@ -1,5 +1,3 @@
-import { Squar } from './squar';
-
 export const SQUARS: any[] = [
   [
     {

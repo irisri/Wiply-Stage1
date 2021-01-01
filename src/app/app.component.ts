@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { SQUARS } from './db';
 
 @Component({
   selector: 'app-root',
@@ -8,5 +7,4 @@ import { SQUARS } from './db';
 })
 export class AppComponent {
   title = 'Color squar game - Iris Rifold';
-  // squars = SQUARS;
 }
