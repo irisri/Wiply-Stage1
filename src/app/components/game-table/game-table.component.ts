@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { SquarService } from '../../services/squarService/squar.service';
+import { SquareService } from '../../services/squareService/square.service';
 
 @Component({
   selector: 'game-table',
@@ -8,19 +8,21 @@ import { SquarService } from '../../services/squarService/squar.service';
   styleUrls: ['./game-table.component.css'],
 })
 export class GameTableComponent implements OnInit {
-  squars: any[];
-  constructor(private squarService: SquarService) {}
+  squares: any[];
+  constructor(private squareService: SquareService) {}
 
   ngOnInit(): void {
-    this.getSquars();
+    this.getSquares();
   }
 
-  getSquars(): void {
-    this.squarService.getSquars().subscribe((squars) => (this.squars = squars));
+  getSquares(): void {
+    this.squareService
+      .getSquares()
+      .subscribe((squares) => (this.squares = squares));
   }
 
   onChangeRandomColor(id: number, ev: any): void {
     ev.stopPropagation();
-    this.squarService.getRandomColor(id);
+    this.squareService.getRandomColor(id);
   }
 }

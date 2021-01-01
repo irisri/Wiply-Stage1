@@ -1,4 +1,4 @@
-export const SQUARS: any[] = [
+export const SQUARES: any[] = [
   [
     {
       id: 1,
